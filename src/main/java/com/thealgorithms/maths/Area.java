@@ -78,10 +78,10 @@ public final class Area {
      */
     public static double surfaceAreaPyramid(final double sideLength, final double slantHeight) {
         if (sideLength <= 0) {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Side length must be greater than 0");
         }
         if (slantHeight <= 0) {
-            throw new IllegalArgumentException("slant height must be greater than 0");
+            throw new IllegalArgumentException("Slant height must be greater than 0");
         }
         double baseArea = sideLength * sideLength;
         double lateralSurfaceArea = 2 * sideLength * slantHeight;
@@ -231,5 +231,22 @@ public final class Area {
             throw new IllegalArgumentException(POSITIVE_HEIGHT);
         }
         return Math.PI * radius * (radius + Math.pow(height * height + radius * radius, 0.5));
+    }
+
+    /**
+     * Calculate the area of an ellipse.
+     *
+     * @param semiMajorAxis semi-major axis of the ellipse
+     * @param semiMinorAxis semi-minor axis of the ellipse
+     * @return area of given ellipse
+     */
+    public static double surfaceAreaEllipse(final double semiMajorAxis, final double semiMinorAxis) {
+        if (semiMajorAxis <= 0) {
+            throw new IllegalArgumentException("Semi-major axis must be greater than 0");
+        }
+        if (semiMinorAxis <= 0) {
+            throw new IllegalArgumentException("Semi-minor axis must be greater than 0");
+        }
+        return Math.PI * semiMajorAxis * semiMinorAxis;
     }
 }
